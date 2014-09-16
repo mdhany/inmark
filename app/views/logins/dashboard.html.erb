@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="hola">
+      <%= image_tag 'bg-welcome.jpg', class: 'img-responsive' %>
+      <h2><b>¡Hola <%= [current_login.first_name, current_login.last_name].join(' ') %>!</b></h2>
+    </div>
+  </div>
+
+  <% if current_login.activated == false %>
+    <div class="col-md-12">
+      <div class="note note-warning">
+      <div class="col-md-12">
+
+        <h3><b>Aún no estas activo/a</b></h3>
+      </div>
+      <div class="col-md-7">
+        <p>Actívate e inicia INMARK sólo con $<%= current_login.level.amount %>. Inicia haciendo click en el siguiente botón:</p>
+
+        <%= link_to 'Solicitar Activación', activation_path, class: 'btn btn-lg green'  %>
+      </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+  <% end %>
+
+  <div class="col-md-12">
+    <%== @dash_page.content %>
+  </div>
+
+</div><!-- FIN ROW -->

@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-12">
+    <p>Para solicitar la activación de su cuenta debe realizar el pago a INMARKS de <strong>$<%= current_login.level.amount %></strong>.</p>
+
+    <h4><strong>Opciones de Pago</strong></h4>
+    <div class="well well-lg">
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Deposito Bancario</h4>
+        <strong>Banco Popular Dominicano</strong><br/>
+        Samuel Lizardo <br/>
+        774-754-675 <br/>
+        <small><i>Realizar su deposito con su nombre y apellido</i></small>
+      </div>
+      <div class="col-md-6">
+        <h4>Paypal</h4>
+        Puede realizar a través de Paypal con su Tarjeta de debito ó crédito.
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+          <!-- Identify your business so that you can collect the payments. -->
+          <input type="hidden" name="business"
+                 value="melvin.dani7@gmail.com">
+
+          <!-- Specify a Donate button. -->
+          <input type="hidden" name="cmd" value="_donations">
+
+          <!-- Specify details about the contribution -->
+          <input type="hidden" name="item_name" value="INMARK & Business School - Pago de $<%= current_login.level.amount %> para activación">
+          <input type="hidden" name="item_number" value="aula-basica">
+          <input type="hidden" name="amount" value="<%= current_login.level.amount %>">
+          <input type="hidden" name="currency_code" value="USD">
+
+          <!-- Display the payment button. -->
+          <input type="submit" name="submit" border="0" value="Pagar Vía PAYPAL" class="btn blue">
+          <img alt="" border="0" width="1" height="1"
+               src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+        </form>
+      </div>
+    </div>
+    </div>
+
+    <hr/>
+
+    <h4><strong>¿Pago realizado?</strong></h4>
+    <p>Cuando haya realizado el pago, suba una imagen de su comprobante de deposito y/ó digite los datos de la transacción.</p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 ">
+
+
+    <%= form_for(@payment) do |f| %>
+        <%= f.hidden_field :level_id %>
+        <%= f.hidden_field :type_p %>
+        <%#= f.hidden_field :coupon_id %>
+        <%= f.hidden_field :amount %>
+    <div class="form-group">
+    <h5>¿Cómo realizó el pago?</h5>
+        <%= f.select(:gateway, [["Deposito Bancario", "Deposito Bancario"], ["Paypal","Paypal"]], {}, class: "form-control input-xlarge") %>
+    </div>
+
+    <h5>Información del Pago <i>(# de Transacción / MTCN)</i></h5>
+    <%= f.text_area :comment, size: "20x5", class: 'form-control' %>
+    <br>
+    <%= f.submit 'Solicitar Activación', class: 'btn btn-lg green m-icon-big payment_sent' %>
+    <% end %>
+  </div>
+
+</div>

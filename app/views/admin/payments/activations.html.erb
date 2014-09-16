@@ -1,0 +1,48 @@
+<% @title = 'Activaciones de Usuarios' %>
+
+<p></p>
+<div class="portlet box green">
+  <div class="portlet-title">
+    <div class="caption"><i class="icon-picture"></i>Activaciones Pendientes</div>
+    <div class="tools">
+      <a class="collapse" href="javascript:;"></a>
+      <a class="reload" href="javascript:;"></a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuario</th>
+          <th>Método</th>
+          <th>Monto</th>
+          <th>Modificacion</th>
+          <th>Info. del Pago</th>
+          <th>Comprobante</th>
+          <th colspan="2"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @admin_payments.each do |p| %>
+            <tr>
+              <td><%= p.id %></td>
+              <td><%= link_to p.login.username, edit_admin_login_path(p.login) %></td>
+              <td><%= p.gateway %></td>
+              <td>$<%= p.amount %></td>
+              <td><%= p.updated_at %></td>
+              <td><small><%= p.comment %></small></td>
+              <td><i class="icon-picture"></i></td>
+              <td><%= link_to 'Activar', admin_activate_login_path(p), method: :post, class: 'btn green btn-xs' %></td>
+              <td><%= link_to 'Eliminar', admin_payment_path(p), method: :delete, data: { confirm: 'Seguro que desea borrarlo?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+

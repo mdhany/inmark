@@ -1,0 +1,51 @@
+<% @title = "Detalle de #{print_type(@coupon.type_c)}" %>
+<div class="row">
+  <div class="col-md-6 ">
+   <h2><b>Balance: </b><%= @coupon.amount %></h2>
+  </div>
+  <div class="col-md-6 ">
+    <h2></h2>
+  </div>
+
+</div>
+
+
+<div class="portlet box green">
+  <div class="portlet-title">
+    <div class="caption"><i class="icon-picture"></i>Transaciones</div>
+    <div class="tools">
+      <a class="collapse" href="javascript:;"></a>
+      <a class="reload" href="javascript:;"></a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+        <tr>
+          <th>Aula</th>
+          <th>Monto</th>
+          <th>Estatus</th>
+          <th>Modificado</th>
+          <th colspan="2"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @payments.each do |p| %>
+            <tr>
+              <td>
+                <%= p.level.name %>
+              </td>
+              <td><%= p.amount %></td>
+              <td><%= p.status %></td>
+              <td><%= p.updated_at %></td>
+
+            </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>

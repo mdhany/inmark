@@ -1,0 +1,34 @@
+<div class="col-md-12">
+<div class="room <%= @room.level.name %>">
+  <div class="row nivel1">
+    <% [4,5,6,7].each do |t| %>
+        <div class="cuadro <%= t.humanize %> inactive"><h4></h4></div>
+    <% end %>
+  </div>
+  <div class="row nivel2">
+    <% @l_two.each do |t| %>
+        <div class="cuadro <%= t.position.humanize %>" id="<%= t.id %>"><h4><%= t.username %></h4><small><%= t.country %></small></div>
+    <% end %>
+  </div>
+  <div class="row nivel3">
+    <div class="cuadro one" id="<%= @l_three.id %>"><h4><%= @l_three.username %></h4><small><%= @l_three.country %></small></div>
+  </div>
+
+</div> <!-- ROOM Final -->
+</div><!-- col-md-12 -->
+
+<%= javascript_tag do %>
+    //Find and select the current login in a room
+    $(".room").find("#<%= current_login.id %>").addClass("selected");
+
+    //Modifying news users
+    <% @l_one.each do |t| %>
+        $(".<%= t.position.humanize %>").removeClass( "inactive" );
+        $(".<%= t.position.humanize %>").attr( 'id', "<%= t.id %>" );
+        $(".<%= t.position.humanize %> > h4").html("<%= t.username %>");
+        $(".<%= t.position.humanize %> > h4").after("<small><%= t.country %></small>");
+
+        ///////
+    <% end %>
+
+<% end %>

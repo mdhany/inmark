@@ -1,0 +1,41 @@
+<% @title = 'Finanzas' %>
+
+<div class="portlet box green">
+  <div class="portlet-title">
+    <div class="caption"><i class="icon-picture"></i>Balances en Cupones</div>
+    <div class="tools">
+      <a class="collapse" href="javascript:;"></a>
+      <a class="reload" href="javascript:;"></a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Monto</th>
+          <th>Modificado</th>
+          <th colspan="2"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @coupons.each do |p| %>
+            <tr>
+              <td>
+                <%= print_type(p.type_c) %>
+              </td>
+              <td><%= p.amount %></td>
+              <td><%= p.updated_at %></td>
+              <td><%= link_to 'Administrar', coupon_show_path(p), class: 'btn green' %></td>
+
+              </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+

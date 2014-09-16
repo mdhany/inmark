@@ -1,0 +1,20 @@
+// Place all the styles related to the logins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+*/
+
+.checkbox input[type="checkbox"]{ margin-left:  0; margin-right: 2px;}
+
+.required {
+  color: #e02222;
+  font-size: 12px;
+  padding-left: 2px;
+}
+
+.hola h2{
+  width: 40%;
+  position: relative;
+  top: -160px;
+  left: 40px;
+}

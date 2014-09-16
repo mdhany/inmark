@@ -1,0 +1,63 @@
+<!-- BEGIN TOP NAVIGATION MENU -->
+<ul class="nav navbar-nav pull-right">
+  <li><%= link_to 'Ir a Portada', root_path %></li>
+  <% if login_signed_in? %>
+<!-- BEGIN USER LOGIN DROPDOWN -->
+<li class="dropdown user">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+    <%= image_tag "admin/avatar.png", width: 29, height: 29 %>
+    <span class="username"><%= "#{current_login.username}" if login_signed_in? %></span>
+    <i class="icon-angle-down"></i>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <%= link_to edit_login_registration_path do %>
+          <i class="icon-user"></i> Mi Perfil
+      <% end %>
+
+    </li>
+    <% if current_login.room %>
+    <li>
+      <%= link_to room_path(current_login.room) do %>
+          <i class="icon-tasks"></i> Mi Aula <span class="badge badge-success">Básica</span>
+      <% end %>
+    </li>
+    <% end %>
+    <li>
+      <%= link_to coupon_index_path do %>
+          <i class="icon-money"></i> Finanzas
+      <% end %>
+    </li>
+    <li class="divider"></li>
+    <li><a href="javascript:;" id="trigger_fullscreen"><i class="icon-move"></i> Pantalla Completa</a>
+    </li>
+    <li>
+      <%#= link_to(salir_path, remote: true) do %>
+      <%= link_to(destroy_login_session_path, method: :delete) do %>
+          <i class="icon-key"></i> Salir
+      <% end %>
+    </li>
+
+  </ul>
+</li>
+<% end %>
+<!-- END USER LOGIN DROPDOWN -->
+
+<% if manager_signed_in? %>
+  <li class="dropdown user admin">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+      <%= image_tag "admin/avatar.png", width: 29, height: 29 %>
+      <span class="username">Admin </span>
+      <i class="icon-angle-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="divider"></li>
+      <li><a href="javascript:;" id="trigger_fullscreen"><i class="icon-move"></i> Pantalla Completa</a>
+      </li>
+<% end %>
+    </ul>
+  </li>
+
+
+</ul>
+<!-- END TOP NAVIGATION MENU -->

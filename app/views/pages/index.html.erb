@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+
+  <!-- Basic -->
+  <meta charset="utf-8">
+  <title>INMARK & Business School - La Fila para cobrar</title>
+  <meta name="keywords" content="INMARK & Business School" />
+  <meta name="description" content="INMARK & Business School - La Fila para cobrar">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Web Fonts  -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+  <!-- Libs CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts/font-awesome/css/font-awesome.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/theme-elements.css">
+
+  <!-- Current Page Styles -->
+  <link rel="stylesheet" href="vendor/revolution-slider/css/settings.css" media="screen" />
+  <link rel="stylesheet" href="vendor/revolution-slider/css/captions.css" media="screen" />
+
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Skin -->
+  <link rel="stylesheet" href="css/skins/green.css">
+
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="css/bootstrap-responsive.css" />
+  <link rel="stylesheet" href="css/theme-responsive.css" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Head Libs -->
+  <script src="vendor/modernizr.js"></script>
+
+  <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.6/video.js"></script>
+  <style type="text/css">
+      .vjs-default-skin .vjs-play-progress,
+      .vjs-default-skin .vjs-volume-level { background-color: #68bd00 }
+      .vjs-default-skin .vjs-control-bar { font-size: 80% }
+  </style>
+
+  <!--[if IE]>
+  <link rel="stylesheet" href="css/ie.css">
+  <![endif]-->
+
+  <!--[if lte IE 8]>
+  <script src="vendor/respond.js"></script>
+  <![endif]-->
+
+  <!-- Facebook OpenGraph Tags - Go to http://developers.facebook.com/ for more information.
+  <meta property="og:title" content="INMARK & Business School"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="http://www.elINMARK & Business School.com"/>
+  <meta property="og:image" content="http://www.elINMARK & Business School.com/images/man-ss.png"/>
+  <meta property="og:site_name" content="INMARK & Business School"/>
+  <meta property="fb:app_id" content=""/>
+  <meta property="og:description" content="INMARK & Business School - La Fila para cobrar"/>
+  -->
+</head>
+<body>
+
+<div class="body">
+  <header>
+    <div class="container">
+      <div class="">
+        <div class="span4 offset2">
+          <h1 class="logo">
+            <a href="index222.html">
+              <img alt="INMARK & Business School" src="images/logo-ss.png">
+            </a>
+          </h1>
+        </div>
+        <div class="span2">
+        </div>
+        <div class="span3">
+          <nav>
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+              <% if login_signed_in? %>
+                  <li class="active">
+                    <a class="dropdown-toggle" href="javascript:;">
+                      Hola <%= current_login.username %>!
+                    </a>
+                  </li>
+                  <li>
+                    <%= link_to  'Ir a Oficina', dashboard_path, class: 'dropdown-toggle' %>
+                  </li>
+              <% else %>
+              <li class="active">
+                <a class="dropdown-toggle" href="http://elINMARK & Business School.com">
+                  Inicio
+                </a>
+              </li>
+              <li></li>
+              <li>
+                <%= link_to  'Acceder', logins_sign_in_path, class: 'dropdown-toggle' %>
+              </li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+
+    </div>
+  </header>
+
+  <div role="main" class="main">
+    <div id="content" class="content full">
+
+      <div class="slider-container">
+        <div class="slider" id="revolutionSlider">
+          <ul>
+            <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
+              <img src="images/slide-bg.jpg" data-fullwidthcentering="on" alt="">
+
+              <div class="caption fade"
+                   data-x="50"
+                   data-y="50"
+                   data-speed="500"
+                   data-start="200"
+                   data-easing="easeOutExpo">
+                <iframe width="640" height="360" src="//www.youtube.com/embed/0dY4fQ61B4w?autoplay=1" frameborder="0" allowfullscreen style="margin-left: 130px;"></iframe>
+
+              </div>
+
+
+
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="home-intro">
+        <div class="container">
+
+          <div class="row">
+            <div class="span8">
+              <p>
+                Conoce más de <em>INMARK y Business School</em> y las posibilidades que te da
+                <span>Observando nuestros videos explicativos</span>
+              </p>
+            </div>
+            <div class="span4">
+              <div class="get-started">
+                <a href="https://www.youtube.com/watch?v=PtbDaoIyb1w&list=UUyiU3HA-bmQZS72b_ZD3uHQ&index=1" target="_blank" class="btn btn-large btn-primary">Ver Videos</a>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="container">
+
+        <div class="row center">
+          <div class="span12">
+            <h2 class="short">Ahora es la <strong>Oportunidad de Ganar</strong> a nivel mundial</h2>
+            <h4 class="lead">Sin Complicaciones y Fácil. Con <strong>INMARK & Business School</strong></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-section">
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="footer-ribon">
+          <span>Importante</span>
+        </div>
+        <div class="span4" align="center">
+          <img src="images/man2-ss.png" width="194" height="384" alt="INMARK & Business School">
+        </div>
+        <div class="span8">
+          <h4>INMARK & BUSINESS SCHOOL</h4>
+          <p>Ha sido creado con el propósito de ayudar a miles de personas a desarroyar y potenciar su negocio de Nework Marketing.
+            <br/>Además de la capacitación que brinda, también funciona como un motor de apalanca miento para iniciar tu negocio de mercadeo en red.
+</p>
+          <p>Estamos comprometido con nuestros clientes para enseñarles, guiarles y ayudarles a capitalizar.
+            <br/>Recomendamos solo multiniveles de riesgo cero, para asegurar la inversión de la gente y garantizar sus ganancias a medida que desarrollen su negocio.
+</p>
+
+          <p>Somos una escuela de Network Marketing y de empuje para emprendedores del negocio en red, a través de nuestro sistema de capitalización.</p>         </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row">
+          <div class="span1" align="center">
+            <a href="http://elINMARK & Business School.com" class="logo">
+              <img src="images/logo-footer.png" alt="INMARK & Business School" width="50" height="50">
+            </a>
+          </div>
+          <div class="span7">
+            <p>© Copyright 2014. Todos los derechos reservados.</p>
+          </div>
+          <div class="span4">
+            <nav id="sub-menu">
+              <ul>
+                <li><a href="INMARK & Business School-2014.pdf">Explicación en PDF</a></li>
+                <% if !login_signed_in? %>
+                <li><%= link_to  'Acceder', logins_sign_in_path, class: 'dropdown-toggle' %></li>
+                <% end %>
+
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Libs -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="vendor/jquery.js"><\/script>')</script>
+<script src="vendor/jquery.easing.js"></script>
+<script src="vendor/jquery.cookie.js"></script>
+<script src="vendor/bootstrap.js"></script>
+<script src="vendor/selectnav.js"></script>
+
+<script src="vendor/revolution-slider/js/jquery.themepunch.plugins.js"></script>
+<script src="vendor/revolution-slider/js/jquery.themepunch.revolution.js"></script>
+
+
+<script src="js/plugins.js"></script>
+
+<!-- Current Page Scripts -->
+<script src="js/views/view.home.js"></script>
+
+<!-- Theme Initializer -->
+<script src="js/theme.js"></script>
+
+</body>
+</html>

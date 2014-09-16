@@ -1,0 +1,11 @@
+<h1>Editing admin_room</h1>
+
+<%= render 'form' %>
+
+<br/>
+<p>SOLO Si hubo un error al cerrarla. Haz click aqui: </p>
+<%= link_to 'Cerrar Room', admin_close_room_path(@admin_room.logins.level_three), method: :post, class: 'btn green' %>
+
+<hr/>
+
+<%= link_to 'Back', admin_rooms_path %>

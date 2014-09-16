@@ -1,0 +1,32 @@
+<% if @payment.status == false %>
+
+    <% @title = 'Solicitud Enviada' %>
+    <div class="row">
+      <div class="col-md-6 ">
+        <p>Ahora que ya has solicitado la autorización de tu pago, solo debes esperar a que tu transacción sea confirmada y aprobada.</p>
+        </div>
+
+      <div class="col-md-6 ">
+        <a class="btn btn-lg default m-icon-big" href="javascript:;">Esparando Confirmación... </a>
+      </div>
+    </div>
+
+<% else %>
+
+    <% @title = 'Solicitud Completada' %>
+    <div class="row">
+      <div class="col-md-6 ">
+        <p>Este pago ha sido Confirmado por INMARK</b>. He aquí los detalles:</p>
+
+        <p><b>Fecha: </b><%= @payment.created_at %></p>
+        <p><b>Emisor: </b><%= @payment.login.username %></p>
+        <p><b>Información del Pago:</b><br><%= @payment.comment %></p>
+      </div>
+
+      <div class="col-md-6 ">
+        <a class="btn btn-lg green m-icon-big" href="javascript:;">Confirmado</a>
+      </div>
+    </div>
+
+<% end %>
+

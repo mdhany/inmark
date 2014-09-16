@@ -1,0 +1,57 @@
+<% @title = 'Pagos' %>
+
+<%= link_to 'Crear Pago', new_admin_payment_path, class: 'btn blue' %>
+<p></p>
+<div class="portlet box green">
+  <div class="portlet-title">
+    <div class="caption"><i class="icon-picture"></i>Tus Transacciones</div>
+    <div class="tools">
+      <a class="collapse" href="javascript:;"></a>
+      <a class="reload" href="javascript:;"></a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Aula</th>
+          <th>Estatus</th>
+          <th>Usuarios</th>
+          <th>Creada</th>
+          <th>Modificado</th>
+          <th colspan="2"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @admin_rooms.each do |p| %>
+            <tr>
+              <td><%= p.id %></td>
+              <td>
+                <%= p.level.name %>
+              </td>
+              <td>
+              <% if p.status == true %>
+                  Activo
+              <% else %>
+                  Completado
+              <% end %>
+              </td>
+              <td><%= p.logins.size %></td>
+              <td><%= p.created_at %></td>
+              <td><%= p.updated_at %></td>
+
+              <td><%= link_to 'Show', room_path(p) %></td>
+              <td><%= link_to 'Edit', edit_admin_room_path(p) %></td>
+              <td><%= link_to 'Destroy', admin_room_path(p), method: :delete, data: { confirm: 'Seguro que desea borrarlo?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
