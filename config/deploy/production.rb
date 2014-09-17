@@ -27,14 +27,14 @@ server 'inmarkbs.com', user: 'deploy', roles: %w{web app}
 #    auth_methods: %w(password)
 #  }
 # and/or per server
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
+ server 'inmarkbs.com',
+   user: 'deploy',
+   roles: %w{web app},
+   ssh_options: {
+     user: 'deploy', # overrides user setting above
+     keys: %w(/home/deploy/.ssh/id_rsa),
+     forward_agent: false,
+     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
-#   }
+   }
 # setting per server overrides global ssh_options
