@@ -34,7 +34,7 @@ server 'inmarkbs.com', user: 'deploy', roles: %w{web app}
      user: 'deploy', # overrides user setting above
      keys: %w(/home/deploy/.ssh/id_rsa),
      forward_agent: false,
-     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
+     auth_methods: %w(publickey password),
+     password: 'Themaster007'
    }
 # setting per server overrides global ssh_options
