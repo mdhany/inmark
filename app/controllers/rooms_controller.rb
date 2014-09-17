@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_login!
   before_action :set_room, only: [:show]
   #before_action :is_owner?, only: [:show]
 
