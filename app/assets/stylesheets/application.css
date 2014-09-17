@@ -87,11 +87,11 @@
 
 }
 .basico .cuadro{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#dff8ec), to(#afedce));/*Para chrome y Safari*/
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d0d0d0), to(#7e8784));/*Para chrome y Safari*/
     /*Degradados*/
-    background-image: -moz-linear-gradient(top center, #dff8ec, #afedce);/*Para Firefox*/
-    background-image: -o-linear-gradient(top, #dff8ec, #afedce);/*Para Opera*/
-    background-image: linear-gradient(top, #dff8ec, #afedce);/*El estandar por defecto*/
+    background-image: -moz-linear-gradient(top center, #d0d0d0, #7e8784);/*Para Firefox*/
+    background-image: -o-linear-gradient(top, #d0d0d0, #7e8784);/*Para Opera*/
+    background-image: linear-gradient(top, #d0d0d0, #7e8784);/*El estandar por defecto*/
 
     border: #b3edd0 solid 1px;
 }
@@ -120,8 +120,8 @@
     width: 99% ;
 }
 
-.basico h4{ font-weight: bolder !important; color: #0a6c3c; margin-top: 40px; margin-bottom: 0; letter-spacing: -0.4pt;}
-.basico small{ color: #0a6c3c;}
+.basico h4{ font-weight: bolder !important; color: #000; margin-top: 40px; margin-bottom: 0; letter-spacing: -0.4pt;}
+.basico small{ color: #000;}
 .superior h4{ font-weight: bolder !important; color: #FFF; margin-top: 40px; margin-bottom: 0; letter-spacing: -0.4pt; text-shadow: 1px 1px 2px #000;}
 .superior small{ color: #fff; text-shadow: 1px 1px 2px #000;}
 /*************************/
