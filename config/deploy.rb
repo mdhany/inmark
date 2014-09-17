@@ -4,7 +4,7 @@ lock '3.1.0'
 set :application, 'inmark'
 set :repo_url, 'git@github.com:mdhany/inmark.git'
 
-set :deploy_to, '/home/rails/inmark'
+set :deploy_to, '/home/deploy/inmark'
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
