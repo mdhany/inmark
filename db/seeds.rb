@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#For Create Roles
-['beginner', 'intermediate', 'expert', 'admin'].each do |role|
-  Role.find_or_create_by name: role
-end
-
 Room.create!(
     id: 1000,
     level_id: 2,
