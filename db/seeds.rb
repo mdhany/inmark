@@ -57,12 +57,12 @@ Level.create!(
 )
 
 #Pages
-Admin::page.create!(
+Page.create!(
     title: 'Dashboard',
     url: 'dashboard',
     content: "<p><strong>&iexcl;Bienvenido a INMARK!</strong></p>"
 )
-Admin::page.create!(
+Page.create!(
     title: '¿Como Funciona INMARK?',
     url: 'como-funciona',
     content: @funciona
