@@ -49,10 +49,12 @@ Manager.create!(
 #Levels
 Level.create!(
     name: 'basico',
+    description: 'Básica',
     amount: 50
 )
 Level.create!(
     name: 'superior',
+    description: 'Superior',
     amount: 95
 )
 
