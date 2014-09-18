@@ -19,7 +19,7 @@
     <% if current_login.room %>
     <li>
       <%= link_to room_path(current_login.room) do %>
-          <i class="icon-tasks"></i> Mi Aula <span class="badge badge-success">Básica</span>
+          <i class="icon-tasks"></i> Mi Aula <span class="badge badge-success"><%= current_login.room.level.description %></span>
       <% end %>
     </li>
     <% end %>

@@ -5,7 +5,7 @@ class Admin::RoomsController < ApplicationController
   # GET /admin/rooms
   # GET /admin/rooms.json
   def index
-    @admin_rooms = Admin::Room.all.reverse_order
+    @admin_rooms = Admin::Room.where(status: true).order( 'id DESC')
   end
 
   # GET /admin/rooms/1
