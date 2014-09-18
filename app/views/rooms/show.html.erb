@@ -20,8 +20,7 @@
 </div><!-- col-md-12 -->
 
 <%= javascript_tag do %>
-    //Find and select the current login in a room
-    $(".room").find("#<%= current_login.id %>").addClass("selected");
+
 
     //Modifying news users
     <% @l_one.each do |t| %>
@@ -33,4 +32,6 @@
         ///////
     <% end %>
 
+    //Find and select the current login in a room
+    $(".room").find("#<%= current_login.id %>").addClass("selected");
 <% end %>

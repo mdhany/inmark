@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916144207) do
+ActiveRecord::Schema.define(version: 20140918201033) do
 
   create_table "admin_pages", force: true do |t|
     t.string   "title"
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 20140916144207) do
 
   add_index "logins", ["email"], name: "index_logins_on_email", unique: true, using: :btree
   add_index "logins", ["identification"], name: "index_logins_on_identification", unique: true, using: :btree
-  add_index "logins", ["number_account"], name: "index_logins_on_number_account", unique: true, using: :btree
   add_index "logins", ["reset_password_token"], name: "index_logins_on_reset_password_token", unique: true, using: :btree
   add_index "logins", ["username"], name: "index_logins_on_username", unique: true, using: :btree
 

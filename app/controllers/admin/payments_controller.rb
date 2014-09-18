@@ -16,7 +16,7 @@ class Admin::PaymentsController < ApplicationController
     if activating_user(@admin_payment)
       if @admin_payment.login.room.logins.size == 7
         #CERRAR CICLO en ROOM si tiene 7 logins
-        close_cycle_room(@admin_payment.login.room.logins.level_three)
+        close_cycle_room(@admin_payment.login.room.logins.level_three.first)
       end
       redirect_to admin_activations_path, notice: 'Usuario Fue Activado y ubicado en Aula.'
     else
@@ -89,12 +89,12 @@ class Admin::PaymentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_payment
-      @admin_payment = Admin::Payment.find(params[:id])
+      @admin_payment = Payment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_payment_params
-      params.require(:admin_payment).permit(:amount, :turn_id, :sent, :received, :gateway, :level_id, :login_id, :beneficiary_id)
+      params.require(:admin_payment).permit(:amount, :coupon_id, :status, :gateway, :level_id, :login_id, :type_p)
     end
 
 
