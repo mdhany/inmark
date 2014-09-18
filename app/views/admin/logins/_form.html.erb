@@ -58,16 +58,22 @@
                 <span class="help-block">(SS, Cédula, Licencia Conducir)</span>
               </div>
 
-
-              <div class="field form-group">
-                <%= f.label 'País', class: 'control-label' %><span class="required">*</span><br>
-                <%= f.country_select :country,{},{}, class: 'form-control' %>
-              </div>
-
               <div class="field form-group">
                 <%= f.label 'Cuidad', class: 'control-label' %><br>
                 <%= f.text_field :city, class: 'form-control' %>
               </div>
+
+              <div class="field form-group">
+                <%= f.label 'Estado / Provincia / Sector', class: 'control-label' %><br>
+                <%= f.text_field :state, class: 'form-control' %>
+              </div>
+
+              <div class="field form-group">
+                <%= f.label 'Teléfono', class: 'control-label' %><br>
+                <%= f.text_field :phone, class: 'form-control' %>
+              </div>
+
+
 
             </div><!-- col6 -->
 
@@ -95,11 +101,6 @@
                 <%= f.text_field :level_id, class: 'form-control' %>
               </div>
               </div>
-              <div class="field form-group">
-                <%= f.label 'Teléfono', class: 'control-label' %><br>
-                <%= f.text_field :phone, class: 'form-control' %>
-              </div>
-
 
               <div class="field form-group">
                 <%= f.label 'Móvil', class: 'control-label' %><br>
@@ -112,10 +113,6 @@
                 <%= f.text_field :skype, class: 'form-control' %>
               </div>
 
-              <div class="field form-group">
-                <%= f.label 'Estado / Provincia / Sector', class: 'control-label' %><br>
-                <%= f.text_field :state, class: 'form-control' %>
-              </div>
 
             </div><!-- col6 -->
 

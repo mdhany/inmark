@@ -43,7 +43,7 @@ class Admin::LoginsController < ApplicationController
   # PATCH/PUT /admin/logins/1.json
   def update
     respond_to do |format|
-      if @admin_login.update(admin_login_params)
+      if @admin_login.update(permitir)
         format.html { redirect_to admin_login_path(@admin_login), notice: 'Login was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_login }
       else
@@ -87,13 +87,13 @@ class Admin::LoginsController < ApplicationController
     end
 
   def permitir
-    params.require(:payment).permit(
+    params.require(:admin_login).permit(
         :email, :username,
         :first_name, :last_name, :identification,
         :phone, :mobile, :number_account, :account_type,
-        :country, :city,
-        :level_id
-
+        :skype, :paypal,
+        :country, :city, :state,
+        :level_id, :sponsor_id, :room_id, :activated, :position, :mlm_started
     )
   end
 end
