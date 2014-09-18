@@ -17,7 +17,7 @@ class Login < ActiveRecord::Base
   belongs_to :sponsor, class_name: "Login"
 
 
-  scope :level_three, -> { find_by(position: 1) }
+  scope :level_three, -> { where(position: 1).order(:position).limit(1) }
   scope :level_two, -> { where(position: [2,3]).order :position }
   scope :level_one, -> { where(position: [4,5,6,7]).order :position }
 

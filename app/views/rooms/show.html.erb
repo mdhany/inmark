@@ -11,7 +11,9 @@
     <% end %>
   </div>
   <div class="row nivel3">
-    <div class="cuadro one" id="<%= @l_three.id %>"><h4><%= @l_three.username %></h4><small><%= @l_three.country %></small></div>
+    <% @l_three.each do |t| %>
+        <div class="cuadro one" id="<%= t.id %>"><h4><%= t.username %></h4><small><%= t.country %></small></div>
+    <% end %>
   </div>
 
 </div> <!-- ROOM Final -->
