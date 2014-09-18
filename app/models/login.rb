@@ -27,7 +27,6 @@ class Login < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true, length: {maximum: 18}
   validates :identification, presence: true, uniqueness: true, numericality: true, length: {maximum: 18}
   validates :country, presence: true
-  validates :number_account, presence: true, uniqueness: true, numericality: true
 
 
   private

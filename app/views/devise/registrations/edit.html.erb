@@ -51,7 +51,7 @@
               <div class="field form-group">
                 <%= f.label "Identificación", class: 'control-label' %><span class="required">*</span><br>
                 <%= f.text_field :identification, class: 'form-control' %>
-                <span class="help-block">(SS, Cédula, Licencia Conducir)</span>
+                <span class="help-block">Solo números (SS, Cédula, Licencia Conducir)</span>
               </div>
 
 
@@ -100,13 +100,13 @@
           <div class="row">
             <div class="col-md-6">
               <div class="field form-group">
-                <%= f.label 'Nombre de Banco', class: 'control-label' %><span class="required">*</span><br>
+                <%= f.label 'Nombre de Banco', class: 'control-label' %><br>
                 <%= f.text_field :account_type, class: 'form-control' %>
               </div>
             </div>
             <div class="col-md-6">
               <div class="field form-group">
-                <%= f.label 'Número de Cuenta', class: 'control-label' %><span class="required">*</span><br>
+                <%= f.label 'Número de Cuenta', class: 'control-label' %><br>
                 <%= f.text_field :number_account, class: 'form-control' %>
               </div>
             </div>
@@ -114,7 +114,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="field form-group">
-                <%= f.label 'Paypal (Email)', class: 'control-label' %><br>
+                <%= f.label 'Paypal / OKPAY (Email)', class: 'control-label' %><br>
                 <%= f.text_field :paypal, class: 'form-control' %>
               </div>
             </div>
