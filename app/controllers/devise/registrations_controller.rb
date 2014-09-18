@@ -148,7 +148,7 @@ class Devise::RegistrationsController < DeviseController
   end
 
   def can_referer_login?
-    if current_login.position >= 2 && current_login.level_id == 1 && current_login.referrals.size < 2
+    if current_login.level_id == 1 #&& current_login.referrals.size < 2
       return true
     else
       redirect_to root_path, alert: 'No Puedes registrar Usuarios'
