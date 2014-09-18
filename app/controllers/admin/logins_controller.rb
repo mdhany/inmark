@@ -5,7 +5,7 @@ class Admin::LoginsController < ApplicationController
   # GET /admin/logins
   # GET /admin/logins.json
   def index
-    @admin_logins = Login.all
+    @admin_logins = Login.where('id != ?', 1000)
   end
 
   # GET /admin/logins/1
@@ -85,4 +85,15 @@ class Admin::LoginsController < ApplicationController
     def admin_login_params
       params[:admin_login]
     end
+
+  def permitir
+    params.require(:payment).permit(
+        :email, :username,
+        :first_name, :last_name, :identification,
+        :phone, :mobile, :number_account, :account_type,
+        :country, :city,
+        :level_id
+
+    )
+  end
 end

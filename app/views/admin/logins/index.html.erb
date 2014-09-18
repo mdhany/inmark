@@ -16,9 +16,9 @@
         <tr>
           <th>ID</th>
           <th>Usuario</th>
+          <th>Patrocinador</th>
+          <th>Aula</th>
           <th>Email</th>
-          <th>Telefono</th>
-          <th>Celular</th>
           <th>País</th>
           <th>Acciones</th>
         </tr>
@@ -29,9 +29,9 @@
             <tr>
               <td><%= user.id %></td>
               <td><%= user.username %></td>
+              <td><%= link_to "#{user.sponsor.username} (#{user.sponsor_id})", edit_admin_login_path(user.sponsor_id) %></td>
+              <td><%= link_to user.room_id, room_path(user.room_id) if !user.room_id.nil? %></td>
               <td><%= link_to user.email, "mailto:#{user.email}" %></td>
-              <td><%= user.phone %></td>
-              <td><%= user.mobile %></td>
               <td><%= user.country %></td>
               <td><%= link_to 'Ver/Editar', edit_admin_login_path(user), class: 'btn green btn-xs' %></td>
 
