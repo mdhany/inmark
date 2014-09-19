@@ -130,7 +130,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def close_cycle_room(login)
+  def close_cycle_room(login) #El Login es el posicion 1 del room a cerrar (l.level_three)
 
     #cambiar status de ROOM a completado que es FALSE
     if change_status(login.room, false)
@@ -145,7 +145,7 @@ class ApplicationController < ActionController::Base
         #si es level 2, por segunda y más, pagar comision
         pay_login_comision(login, 225) #dolares
       else
-        logger.debug = "No se pudo Pagar Comision del login #{login}"
+        logger.debug "No se pudo Pagar Comision del login #{login}"
       end
 
       #DIVIDIR EN 2 ROOM
@@ -165,13 +165,23 @@ class ApplicationController < ActionController::Base
         end
         #asignarle una nueva room
         if register_in_room(login)
-          logger.debug = "El Login fue registrado en el aula: #{login.room}"
+          logger.debug "El Login fue registrado en el aula: #{login.room.id}"
+
+          #------------------------
+          #ROOM LEVEL 2
+          #si el NUEVO room donde se ha registrado a este login es nivel 2 y esta LLENO (7)
+          ro = login.room
+          if ro.logins.size == 7
+            close_cycle_room(lo.logins.level_three.first)
+          end
+          #CERRAR el ROOM
+
         else
-          logger.debug = "No se pudo REGISTRAR en el Room: #{login.id}"
+          logger.debug "No se pudo REGISTRAR en el Room: #{login.id}"
         end
 
       else
-        logger.debug = "No se pudo DIVIDIR el Room: #{login.room}"
+        logger.debug "No se pudo DIVIDIR el Room: #{login.room}"
       end
     end
   end
@@ -187,7 +197,7 @@ class ApplicationController < ActionController::Base
     elsif side == "left_nextp" && room.right_nextp == 6
       room.update_attribute side.to_sym, 7
     else
-      logger.debug = "Room Lleno #{room.logins}"
+      logger.debug "Room Lleno #{room.logins}"
     end
   end
 #
@@ -223,7 +233,7 @@ class ApplicationController < ActionController::Base
 
         else #Entonces, la derecha Tambien esta llena, enviar posicion 0, la cual sera rechazada.
           position = 0
-          logger.debug = "ROOM lleno. No hay posiciones disponibles. Tiene #{rs.logins.size} logins"
+          logger.debug "ROOM lleno. No hay posiciones disponibles. Tiene #{rs.logins.size} logins"
         end
 
       else #Entonces, si el izq no esta lleno, enviar posicion
@@ -240,7 +250,7 @@ class ApplicationController < ActionController::Base
 
         else #Entonces, la izq Tambien esta llena, enviar posicion 0, la cual sera rechazada.
           position = 0
-          logger.debug = "ROOM lleno. No hay posiciones disponibles. Tiene #{rs.logins.size} logins"
+          logger.debug "ROOM lleno. No hay posiciones disponibles. Tiene #{rs.logins.size} logins"
         end
 
       else #Entonces, si el izq no esta lleno, enviar posicion
@@ -257,7 +267,7 @@ class ApplicationController < ActionController::Base
 
       else #Entonces, la derecha Tambien esta llena, enviar posicion 0, la cual sera rechazada.
         position = 0
-        logger.debug = "ROOM lleno. No hay posiciones disponibles. Tiene #{rs.logins} logins"
+        logger.debug "ROOM lleno. No hay posiciones disponibles. Tiene #{rs.logins} logins"
       end
 
     end #Fin de if rs == 2
@@ -266,36 +276,65 @@ class ApplicationController < ActionController::Base
   end
 
   def find_room_for_alpha(login)
-    r = Room.where(status: true, left_nextp: [4,5], level_id: login.level_id).first
+    #Buscar el room que tenga espacios disponibles y que sea del mismo nivel que Login
+    r = Room.where(["status = ? AND (left_nextp IN (?,?) OR right_nextp IN (?,?)) AND level_id = ?", true, 4,5, 6,7, login.level_id]).first
   end
 
   def register_in_room(login)
-    #Login Alpha Regisitring
-    if login.id == 1000
+
+    if login.id == 1000 #Registrar LOGIN ALPHA
       #conseguir el proximo room para Alpha
       lo = find_room_for_alpha(login)
       #Almacenar la nueva posición para Alpha y luego modificarla al final de este metodo
-      position = lo.left_nextp
+      position = lo.left_nextp || lo.right_nextp
 
       #Actualizar LOGIN ALPHA
       if login.update_attributes! room_id: lo.id, position: position
-        logger.debug = "El LOGIN Alpha ha sido registrado en el room #{lo.id}"
+        logger.debug "El LOGIN Alpha ha sido registrado en el room #{lo.id}"
       else
-        logger.debug = "El LOGIN Alpha NO ha sido registrado en el ROOM"
+        logger.debug "El LOGIN Alpha NO ha sido registrado en el ROOM"
       end
 
-    else
+    else #REGISTRAR cualquier usuario
 
-      #Normal Registring
-      room = login.sponsor.room
-      position = get_next_position(login)
+      #si login.level != al sponsor.level
+        #buscar aula con el mismo level del Login
+        #EXPLICACION
+        #Esto soluciona si el s.level == 2 y el l.level == 1,
+        # lo registra en una aula nivel 1, pero para cuando
+        # desarrolle la seleccion de nivel en que registrar un login funcione bien.
+        # AHORA bien si el sponsor: 1 y login: 2 porque la aula del login corrió más rápido,
+        # tambien buscara el aula más proxima de su mismo nivel
 
-        if position != 0
-          #Modificar los campos del mismo login
-          login.update_attributes! room_id: room.id, position: position
+      if login.level_id != login.sponsor.level_id
+        #conseguir el proximo room
+        lo = find_room_for_alpha(login)
+        #Almacenar la nueva posición y luego modificarla al final de este metodo
+        position = lo.left_nextp || lo.right_nextp
+
+        #Actualizar LOGIN ALPHA
+        if login.update_attributes! room_id: lo.id, position: position
+          logger.debug "El LOGIN ha sido registrado en el room #{lo.id}"
+        else
+          logger.debug "El LOGIN NO ha sido registrado en el ROOM"
         end
 
+
+      else
+
+        #Normal Registring
+        room = login.sponsor.room
+        position = get_next_position(login)
+
+          if position != 0
+            #Modificar los campos del mismo login
+            login.update_attributes! room_id: room.id, position: position
+          end
+      end #Fin de login.level_id
+
     end
+    #Re definiendo el ROOM
+    room = login.room
 
     #Si se actualizo el Login correctamente. Osea si ya esta en el nuevo room
     if position == login.position
@@ -310,10 +349,10 @@ class ApplicationController < ActionController::Base
         room.update_attribute :right_nextp, 0
       else
         return false
-        logger.debug = "ROOM lleno. No se actualizó Room."
+        logger.debug "ROOM lleno. No se actualizó Room."
       end
     else
-      logger.debug = "El Login #{login.id} no pudo ser registrado en la nueva ROOM"
+      logger.debug "El Login #{login.id} no pudo ser registrado en la nueva ROOM"
     end
 
   end
