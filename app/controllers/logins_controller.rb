@@ -26,6 +26,7 @@ class LoginsController < ApplicationController
     @payment.type_p = 0
     #@payment.coupon_id = current_login.coupons.find_by(type_c: 0).id
     @payment.amount = current_login.level.amount
+    @emailadmin = Login.find(1000)
 
 
   end
