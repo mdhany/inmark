@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
     @l_one = @room.logins.level_one
     @l_two = @room.logins.level_two
     @l_three = @room.logins.level_three
+    @videos = Admin::Page.find_by_url 'roomvideos'
   end
 
   private
