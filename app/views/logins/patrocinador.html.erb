@@ -1,0 +1,58 @@
+<% @title = "Patrocinador" %>
+<div class="col-md-12">
+  <div class="portlet box grey">
+    <div class="portlet-title">
+      <div class="caption"><i class="icon-cogs"></i>Datos del Patrocinador</div>
+      <div class="tools">
+        <a class="collapse" href="javascript:;"></a>
+      </div>
+    </div>
+    <div class="portlet-body">
+      <div class="margin-top-10 margin-bottom-10 clearfix">
+        <table class="table table-bordered table-striped">
+          <tbody>
+          <tr>
+            <td><b>Usuario</b></td>
+            <td>
+              <%= @sponsor.username %>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Nombre</b></td>
+            <td>
+              <%= "#{@sponsor.first_name} #{@sponsor.last_name}" %>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Email</b></td>
+            <td>
+              <%= @sponsor.email %>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Teléfono</b></td>
+            <td>
+              <%= @sponsor.phone %>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Aula de Patrocinador</b></td>
+            <td>
+              <% if @sponsor.level_id == 1
+                   color = 'label label-default'
+                 else
+                   color = 'label label-success'
+                 end
+              %>
+              <%= link_to @sponsor.room_id, room_path(@sponsor.room, @sponsor.id), class: "btn #{color}" %>
+            </td>
+          </tr>
+
+
+          </tbody></table>
+      </div>
+
+    </div>
+  </div>
+</div>
+

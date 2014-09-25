@@ -37,11 +37,8 @@ class LoginsController < ApplicationController
     @referrals = @logged.referrals.where("level_id >= ? AND used = ?", params[:level_id].to_i, false)
   end
 
-  #P: Si es el Sponsor
-  def login_activity
-    #Buscar el login y almacenar
-    @login = Login.find params[:id]
-
+  def patrocinador
+    @sponsor = current_login.sponsor || current_login
   end
 
 private

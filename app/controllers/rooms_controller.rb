@@ -7,9 +7,6 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     @title = "Aula ##{@room.id}"
-    @l_one = @room.logins.level_one
-    @l_two = @room.logins.level_two
-    @l_three = @room.logins.level_three
     @videos = Admin::Page.find_by_url 'roomvideos'
   end
 

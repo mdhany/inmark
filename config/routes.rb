@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   #Logins Routes
   get 'salir', to: 'logins#salir'
+  get 'mi_patrocinador' => 'logins#patrocinador', as: 'patrocinador'
   get 'mis_referidos' => 'logins#index', as: 'mis_referidos'
   get 'login_activity/:id' => 'logins#login_activity', as: 'login_activity'
   get 'myturns' => 'logins#my_turns', as: 'my_turns'

@@ -6,12 +6,12 @@
     <% end %>
   </div>
   <div class="row nivel2">
-    <% @l_two.each do |t| %>
+    <% @room.logins.level_two.each do |t| %>
         <div class="cuadro <%= t.position.humanize %>" id="<%= t.id %>"><h4><%= t.username %></h4><small><%= t.country %></small></div>
     <% end %>
   </div>
   <div class="row nivel3">
-    <% @l_three.each do |t| %>
+    <% @room.logins.level_three.each do |t| %>
         <div class="cuadro one" id="<%= t.id %>"><h4><%= t.username %></h4><small><%= t.country %></small></div>
     <% end %>
   </div>
@@ -25,7 +25,7 @@
 
 
     //Modifying news users
-    <% @l_one.each do |t| %>
+    <% @room.logins.level_one.each do |t| %>
         $(".<%= t.position.humanize %>").removeClass( "inactive" );
         $(".<%= t.position.humanize %>").attr( 'id', "<%= t.id %>" );
         $(".<%= t.position.humanize %> > h4").html("<%= t.username %>");
