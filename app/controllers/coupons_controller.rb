@@ -1,6 +1,6 @@
 class CouponsController < ApplicationController
   before_action :authenticate_login!
-  before_action :set_coupon, only: [:show, :edit, :update]
+  before_action :set_coupon, only: [:show]
 
   def index
     @coupons = current_login.coupons
