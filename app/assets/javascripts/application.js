@@ -22,5 +22,7 @@
 //= require jquery.cookie.min
 //= require uniform/jquery.uniform.min
 //= require admin/app
+//= require ckeditor-jquery
 //= require_self
-//= require ckeditor/init
+
+

@@ -31,7 +31,8 @@
           <div class="field form-group">
             <%= f.label 'Contenido', class: 'control-label' %><br>
             <%#= f.text_area :content, rows: 15, class: 'form-control' %>
-            <%= f.cktext_area :content, :class => 'someclass', :ckeditor => {:language => 'es'} %>
+            <%#= f.cktext_area :content %>
+            <%= f.text_area :content, :class => 'ckeditor' %>
           </div>
         </div>
       </div>
@@ -41,3 +42,8 @@
     <%= f.submit class: 'btn green' %>
   </div>
 <% end %>
+<script>
+    $('.ckeditor').ckeditor({
+        // optional config
+    });
+</script>

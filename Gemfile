@@ -34,7 +34,7 @@ gem 'devise'
 
 gem 'countries'
 gem 'country_select'
-gem 'ckeditor'
+gem 'ckeditor_rails', '~> 4.4.3'
 gem 'humanize', '~> 1.1.0'
 
 gem 'whenever', :require => false
