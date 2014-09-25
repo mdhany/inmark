@@ -35,5 +35,5 @@
     <% end %>
 
     //Find and select the current login in a room
-    $(".room").find("#<%= current_login.id %>").addClass("selected");
+    $(".room").find("#<%= params[:login_id] %>").addClass("selected");
 <% end %>

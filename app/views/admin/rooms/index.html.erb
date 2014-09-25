@@ -41,7 +41,7 @@
               <td><%= p.created_at %></td>
               <td><%= p.updated_at %></td>
 
-              <td><%= link_to 'Show', room_path(p) %></td>
+              <td><%= link_to 'Show', room_path(p, 0) %></td>
               <td><%= link_to 'Edit', edit_admin_room_path(p) %></td>
               <td><%= link_to 'Destroy', admin_room_path(p), method: :delete, data: { confirm: 'Seguro que desea borrarlo?' } %></td>
             </tr>

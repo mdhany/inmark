@@ -18,7 +18,7 @@
     </li>
     <% if current_login.room %>
     <li>
-      <%= link_to room_path(current_login.room) do %>
+      <%= link_to room_path(current_login.room, current_login.id) do %>
           <i class="icon-tasks"></i> Mi Aula <span class="badge badge-success"><%= current_login.room.level.description %></span>
       <% end %>
     </li>

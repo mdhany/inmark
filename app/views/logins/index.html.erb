@@ -14,11 +14,11 @@
         <thead>
         <tr>
           <th>Usuario</th>
-          <th>Email</th>
+          <th>Aula</th>
+          <th>Nombre</th>
           <th>Telefono</th>
-          <th>Celular</th>
+          <th>Email</th>
           <th>País</th>
-          <th>Actividad</th>
         </tr>
         </thead>
 
@@ -26,9 +26,19 @@
         <% @logins.each do |user| %>
             <tr>
               <td><%= user.username %></td>
+              <td>
+                <% if user.level_id == 1
+                     color = 'label label-default'
+                   else
+                     color = 'label label-success'
+                   end
+                %>
+                <%= link_to user.room_id, room_path(user.room, user.id), class: "btn #{color}" %>
+              </td>
+              <td><%= "#{user.first_name} #{user.last_name}" %></td>
               <td><%= link_to user.email, "mailto:#{user.email}" %></td>
               <td><%= user.phone %></td>
-              <td><%= user.mobile %></td>
+
               <td><%= user.country %></td>
               <td><%#= link_to 'Ver', login_activity_path(user.id), class: 'btn green btn-xs' %></td>
             </tr>

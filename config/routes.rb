@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'wallet', to: 'coupons#index', as: 'coupon_index'
   get 'wallet/show/:id', to: 'coupons#show', as: 'coupon_show'
 
-  resources :rooms
+  get 'aulas/:id/:login_id', to: 'rooms#show', as: 'room'
 
   #Logins Routes
   get 'salir', to: 'logins#salir'
