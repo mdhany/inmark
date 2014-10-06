@@ -130,7 +130,7 @@
 
 /* REGISTRO DE USUARIO */
 .aulas-reg .radio{
-    background: url("rooms_prev.png") no-repeat top left;
+    background: url("/images/rooms_prev.png") no-repeat top left;
     width: 295px;
     height: 111px;
     display: block;
@@ -147,3 +147,4 @@
 }
 
 #uniform-login_level_id_2{ background-position: -296px;}
+.aulas-reg .selected{ border: #ff0000 solid 2px;}
