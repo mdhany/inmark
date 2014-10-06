@@ -130,7 +130,7 @@
 
 /* REGISTRO DE USUARIO */
 .aulas-reg .radio{
-    background: url("rooms_prev.png") no-repeat top left;
+    background: url("images/rooms_prev.png") no-repeat top left;
     width: 295px;
     height: 111px;
     display: block;
