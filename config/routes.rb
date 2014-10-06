@@ -39,7 +39,9 @@ Rails.application.routes.draw do
   devise_for :managers
 
   #Pages
+  get 'terminoscond', to: 'pages#terminos', as: 'terminoscond'
   get ':url', to: 'pages#show', as: 'show_page'
+
 
   namespace :admin do
     resources :pages, :logins, :payments, :turns, :levels, :capacities, :rooms, :coupons

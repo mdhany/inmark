@@ -110,83 +110,23 @@
   <div role="main" class="main">
     <div id="content" class="content full">
 
-      <div class="slider-container">
-        <div class="slider" id="revolutionSlider">
-          <ul>
-            <li data-transition="fade" data-slotamount="10" data-masterspeed="300">
-              <img src="images/slide-bg.jpg" data-fullwidthcentering="on" alt="">
 
-              <div class="caption fade"
-                   data-x="50"
-                   data-y="50"
-                   data-speed="500"
-                   data-start="200"
-                   data-easing="easeOutExpo">
-                <img src="images/slider.png" style="padding-left: 60px;">
-
-              </div>
-            </li>
-            <%== @page.content if !@page.nil? %>
-          </ul>
-        </div>
-      </div>
-
-      <div class="home-intro">
-        <div class="container">
-
-          <div class="row">
-            <div class="span8">
-              <p>
-                Conoce más de <em>INMARK Business School </em>  y las posibilidades que te da
-                <span>Observando nuestros videos explicativos</span>
-              </p>
-            </div>
-            <div class="span4">
-              <div class="get-started">
-                <a href="https://www.youtube.com/watch?v=PtbDaoIyb1w&list=UUyiU3HA-bmQZS72b_ZD3uHQ&index=1" target="_blank" class="btn btn-large btn-primary">Ver Videos</a>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
       <div class="container">
 
-        <div class="row center">
-          <div class="span12">
-            <h2 class="short">Ahora es la <strong>Oportunidad de Ganar</strong> a nivel mundial</h2>
-            <h4 class="lead">Sin Complicaciones y Fácil. Con <strong>INMARK & Business School</strong></h4>
+        <div class="row">
+          <div class="span1"></div>
+          <div class="span10 ">
+            <h2 class="short"><%= @page.title %></h2>
+            <%== @page.content if !@page.nil? %>
           </div>
         </div>
       </div>
 
-      <div class="map-section">
-
-      </div>
     </div>
   </div>
 
   <footer>
-    <div class="container">
-      <div class="row">
-        <div class="footer-ribon">
-          <span>Importante</span>
-        </div>
-        <div class="span4" align="center">
-          <img src="images/man2-ss.png" width="194" height="384" alt="INMARK & Business School">
-        </div>
-        <div class="span8">
-          <%== @inm.content if !@inm.nil? %>
 
-        <h4>Términos y condiciones</h4>
-          <div class="box-croped">
-        <%== @ter.content if !@ter.nil? %>
-          </div>
-        </div>
-
-      </div>
-    </div>
     <div class="footer-copyright">
       <div class="container">
         <div class="row">
@@ -199,9 +139,7 @@
             <nav id="sub-menu">
               <ul>
                 <li><%= link_to  'Términos y Condiciones', terminoscond_path, class: 'dropdown-toggle' %></li>
-                <% if !login_signed_in? %>
-                    <li><%= link_to  'Acceder', logins_sign_in_path, class: 'dropdown-toggle' %></li>
-                <% end %>
+                <li><a href="/oficina">Acceder</a></li>
 
               </ul>
             </nav>

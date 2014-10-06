@@ -1,7 +1,7 @@
 class Devise::RegistrationsController < DeviseController
   prepend_before_filter :require_no_authentication, only: [:cancel ]
   prepend_before_filter :authenticate_scope!, only: [:new, :create,:edit, :update, :destroy]
-  prepend_before_filter :can_referer_login?, only: :new
+  #prepend_before_filter :can_referer_login?, only: :new
 
   # GET /resource/sign_up
   def new
@@ -16,6 +16,7 @@ class Devise::RegistrationsController < DeviseController
     resource_saved = resource.save
     yield resource if block_given?
     if resource_saved
+
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         #sign_up(resource_name, resource)

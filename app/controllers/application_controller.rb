@@ -29,18 +29,13 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(:username, :first_name, :last_name, :identification, :phone, :mobile, :sponsor_id, :country, :city, :state, :address, :account_type, :number_account, :paypal, :skype,
-               :email, :password, :password_confirmation, :current_password)
+               :email, :password, :password_confirmation, :current_password, :level_id)
     end
   end
 
   # Change status of Model after payment creation
   def change_status(object, status)
     object.update_attribute :status, status
-  end
-
-  def next_turn(last)
-    #Busca el PRIMER turno que este en waiting y sea del level correspondiente
-    Turn.where(status: 'waiting', level_id: last.level_id).first
   end
 
   # Para conceder permisos si tiene ese nivel
@@ -200,26 +195,6 @@ class ApplicationController < ActionController::Base
       logger.debug "Room Lleno #{room.logins}"
     end
   end
-#
-#  def get_next_position_basic(l)
-#    ps = l.sponsor.position
-#    rs = l.sponsor.room.logins
-#
-#    if ps == 2
-#      if rs.level_one.first.position == 4
-#        position = 5
-#      else
-#        position = 4
-#      end
-#    else #Si es igual a 3 la posicion del sponsor
-#      if rs.level_one.third.position == 6
-#        position = 7
-#      else
-#        position = 6
-#      end
-#    end
-#    position
-#  end
 
   def get_next_position(l)
     ps = l.sponsor.position
@@ -312,13 +287,12 @@ class ApplicationController < ActionController::Base
         #Almacenar la nueva posición y luego modificarla al final de este metodo
         position = lo.left_nextp || lo.right_nextp
 
-        #Actualizar LOGIN ALPHA
+        #Actualizar LOGIN
         if login.update_attributes! room_id: lo.id, position: position
           logger.debug "El LOGIN ha sido registrado en el room #{lo.id}"
         else
           logger.debug "El LOGIN NO ha sido registrado en el ROOM"
         end
-
 
       else
 
@@ -334,6 +308,7 @@ class ApplicationController < ActionController::Base
 
     end
     #Re definiendo el ROOM
+    room = nil
     room = login.room
 
     #Si se actualizo el Login correctamente. Osea si ya esta en el nuevo room

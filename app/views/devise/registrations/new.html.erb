@@ -126,6 +126,23 @@
 
             </div>
           </div>
+
+          <h3 class="form-section">Selección de Aula</h3>
+          <div class="row aulas-reg">
+
+            <div class="col-md-6">
+              <div class="field form-group">
+                <%= f.label 'Aula Básica', class: 'control-label' %><br>
+                <%= f.radio_button :level_id, 1, class: 'radio-aula' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="field form-group">
+                <%= f.label 'Aula Superior', class: 'control-label' %><br>
+                <%= f.radio_button :level_id, 2, class: 'radio-aula' %>
+              </div>
+            </div>
+          </div>
         </div><!-- Fin de .form-body-->
 
         <div class="form-actions right">
@@ -135,5 +152,4 @@
 <% end %>
   </div>
 </div>
-
 

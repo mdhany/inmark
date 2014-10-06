@@ -128,3 +128,22 @@
 /* ROOMS == Final*/
 /*************************/
 
+/* REGISTRO DE USUARIO */
+.aulas-reg .radio{
+    background: url("rooms_prev.png") no-repeat top left;
+    width: 295px;
+    height: 111px;
+    display: block;
+}
+#login_level_id_1{
+    width: 295px;
+    height: 111px;
+    display: block;
+}
+#login_level_id_2{
+    width: 295px;
+    height: 111px;
+    display: block;
+}
+
+#uniform-login_level_id_2{ background-position: -296px;}

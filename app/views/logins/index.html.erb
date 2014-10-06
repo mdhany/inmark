@@ -16,8 +16,8 @@
           <th>Usuario</th>
           <th>Aula</th>
           <th>Nombre</th>
-          <th>Telefono</th>
           <th>Email</th>
+          <th>Telefono</th>
           <th>País</th>
         </tr>
         </thead>
@@ -27,20 +27,19 @@
             <tr>
               <td><%= user.username %></td>
               <td>
-                <% if user.level_id == 1
-                     color = 'label label-default'
-                   else
-                     color = 'label label-success'
-                   end
-                %>
-                <%= link_to user.room_id, room_path(user.room, user.id), class: "btn #{color}" %>
+                <% if user.level_id == 1 %>
+                     <%= link_to user.room_id, room_path(user.room, user.id), class: "btn label label-default" unless user.room.nil? %>
+                  <% else %>
+                    <%= link_to user.room_id, room_path(user.room, user.id), class: "btn label label-success" unless user.room.nil? %>
+                  <% end %>
+
               </td>
               <td><%= "#{user.first_name} #{user.last_name}" %></td>
               <td><%= link_to user.email, "mailto:#{user.email}" %></td>
               <td><%= user.phone %></td>
 
               <td><%= user.country %></td>
-              <td><%#= link_to 'Ver', login_activity_path(user.id), class: 'btn green btn-xs' %></td>
+
             </tr>
         <% end %>
         </tbody>
