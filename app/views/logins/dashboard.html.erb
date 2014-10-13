@@ -14,7 +14,7 @@
         <h3><b>Aún no estas activo/a</b></h3>
       </div>
       <div class="col-md-7">
-        <p>Actívate e inicia INMARK sólo con $<%= current_login.level.amount %>. Inicia haciendo click en el siguiente botón:</p>
+        <p>Actívate e inicia INMARK sólo con $<%= current_login.level.amount + 5  %>. Inicia haciendo click en el siguiente botón:</p>
 
         <%= link_to 'Solicitar Activación', activation_path, class: 'btn btn-lg green'  %>
       </div>
