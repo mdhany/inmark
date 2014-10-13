@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :pages, :logins, :payments, :turns, :levels, :capacities, :rooms, :coupons
+    get 'rooms/:id/:login_id', to: 'rooms#edit', as: 'edit_aula'
     get 'activations', to: 'payments#activations', as: 'activations'
     post 'activations/:id/activating', to: 'payments#activate', as: 'activate_login'
     post 'activations/closing_room/:id', to: 'payments#close_room', as: 'close_room'
