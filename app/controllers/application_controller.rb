@@ -55,8 +55,6 @@ class ApplicationController < ActionController::Base
     l.update_attribute :activated, true
   end
 
-
-
   def activating_user(payment)
     if complete_payment(payment) #Confirmando Pago
       if change_login_activated(payment.login) #Cambiar a Login Activado

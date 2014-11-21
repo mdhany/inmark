@@ -30,6 +30,7 @@ class Admin::PaymentsController < ApplicationController
     if close_cycle_room(login)
       redirect_to dashboard_path, notice: 'Room fue Cerrada'
     end
+    render false
   end
 
   # GET /admin/payments/1
