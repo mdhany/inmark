@@ -41,8 +41,8 @@
               <td><%= p.created_at %></td>
               <td><%= p.updated_at %></td>
 
-              <td><%= link_to 'Show', room_path(p, p.logins.level_three.first.id) %></td>
-              <td><%= link_to 'Edit', admin_edit_aula_path(p, p.logins.level_three.first.id) %></td>
+              <td><%= link_to 'Show', room_path(p, p.logins.level_three.first.id) unless p.logins.level_three.first.nil? %></td>
+              <td><%= link_to 'Edit', admin_edit_aula_path(p, p.logins.level_three.first.id) unless p.logins.level_three.first.nil? %></td>
               <td><%= link_to 'Destroy', admin_room_path(p), method: :delete, data: { confirm: 'Seguro que desea borrarlo?' } %></td>
               <td><%= link_to 'Cerrar', admin_close_room_path(p.logins.level_three.first.id), method: :post %></td>
             </tr>
