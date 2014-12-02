@@ -27,8 +27,10 @@ class Admin::PaymentsController < ApplicationController
 
   def close_room
     login = Login.find params[:id]
-    if close_cycle_room(login)
-      redirect_to dashboard_path, notice: 'Room fue Cerrada'
+    if login.room.logins.size == 7
+      if close_cycle_room(login)
+        redirect_to dashboard_path, notice: 'Room fue Cerrada'
+      end
     end
     render false
   end
