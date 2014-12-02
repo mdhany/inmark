@@ -165,7 +165,7 @@ class ApplicationController < ActionController::Base
           #si el NUEVO room donde se ha registrado a este login es nivel 2 y esta LLENO (7)
           ro = login.room
           if ro.logins.size == 7
-            close_cycle_room(lo.logins.level_three.first)
+            close_cycle_room(ro.logins.level_three.first)
           end
           #CERRAR el ROOM
 

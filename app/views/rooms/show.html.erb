@@ -22,8 +22,6 @@
 <%== @videos.content if !@videos.nil? %>
 
 <%= javascript_tag do %>
-
-
     //Modifying news users
     <% @room.logins.level_one.each do |t| %>
         $(".<%= t.position.humanize %>").removeClass( "inactive" );
